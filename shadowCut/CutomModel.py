@@ -6,7 +6,7 @@ from keras.callbacks import CSVLogger,ModelCheckpoint
 from glob import glob
 
 
-def preTrainedModel(train_path, valid_path, model, 
+def customTrainedModel(train_path, valid_path, model, 
                     optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'], 
                     filepath = 'saved_models/weights-improvement-{epoch:02d}.h5', 
                     monitor='val_accuracy', verbose=1, save_best_only=True, mode='max',
