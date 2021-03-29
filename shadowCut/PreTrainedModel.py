@@ -1,6 +1,5 @@
 from tensorflow.keras.layers import Dense,Flatten
 from tensorflow.keras.models import Model
-from tensorflow.keras.applications import ResNet152V2
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from keras.callbacks import CSVLogger,ModelCheckpoint
 from glob import glob
@@ -23,6 +22,13 @@ def preTrainedModel(train_path, valid_path, model,
                     channel_shift_range=0.0, fill_mode='nearest', cval=0.0,
                     horizontal_flip=False, vertical_flip=False, rescale=None,
                     preprocessing_function=None, data_format=None, validation_split=0.0, dtype=None,
+                    test_featurewise_center=False, test_samplewise_center=False,
+                    test_featurewise_std_normalization=False, test_samplewise_std_normalization=False,
+                    test_zca_whitening=False, test_zca_epsilon=1e-06, test_rotation_range=0, test_width_shift_range=0.0,
+                    test_height_shift_range=0.0, test_brightness_range=None, test_shear_range=0.0, test_zoom_range=0.0,
+                    test_channel_shift_range=0.0, test_fill_mode='nearest', test_cval=0.0,
+                    test_horizontal_flip=False, test_vertical_flip=False, test_rescale=None,
+                    test_preprocessing_function=None, test_data_format=None, test_validation_split=0.0, test_dtype=None,
                     validation_freq=1, class_weight=None, max_queue_size=10, workers=1, 
                     use_multiprocessing=False, shuffle=True, initial_epoch=0):
                     
@@ -51,13 +57,13 @@ def preTrainedModel(train_path, valid_path, model,
                     horizontal_flip=horizontal_flip, vertical_flip=vertical_flip, rescale=rescale,
                     preprocessing_function=preprocessing_function, data_format=data_format, validation_split=validation_split, dtype=dtype)
 
-      test_datagen = ImageDataGenerator(featurewise_center=featurewise_center, samplewise_center=samplewise_center,
-                    featurewise_std_normalization=featurewise_std_normalization, samplewise_std_normalization=samplewise_std_normalization,
-                    zca_whitening=zca_whitening, zca_epsilon=zca_epsilon, rotation_range=rotation_range, width_shift_range=width_shift_range,
-                    height_shift_range=height_shift_range, brightness_range=brightness_range, shear_range=shear_range, zoom_range=zoom_range,
-                    channel_shift_range=channel_shift_range, fill_mode=fill_mode, cval=cval,
-                    horizontal_flip=horizontal_flip, vertical_flip=vertical_flip, rescale=rescale,
-                    preprocessing_function=preprocessing_function, data_format=data_format, validation_split=validation_split, dtype=dtype)
+      test_datagen = ImageDataGenerator(featurewise_center=test_featurewise_center, samplewise_center=test_samplewise_center,
+                    featurewise_std_normalization=test_featurewise_std_normalization, samplewise_std_normalization=test_samplewise_std_normalization,
+                    zca_whitening=test_zca_whitening, zca_epsilon=test_zca_epsilon, rotation_range=test_rotation_range, width_shift_range=test_width_shift_range,
+                    height_shift_range=test_height_shift_range, brightness_range=test_brightness_range, shear_range=test_shear_range, zoom_range=test_zoom_range,
+                    channel_shift_range=test_channel_shift_range, fill_mode=test_fill_mode, cval=test_cval,
+                    horizontal_flip=test_horizontal_flip, vertical_flip=test_vertical_flip, rescale=test_rescale,
+                    preprocessing_function=test_preprocessing_function, data_format=test_data_format, validation_split=test_validation_split, dtype=test_dtype)
 
       training_set = train_datagen.flow_from_directory(train_path,
                                                target_size=target_size,
