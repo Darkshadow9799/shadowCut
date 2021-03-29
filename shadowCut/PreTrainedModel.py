@@ -1,7 +1,7 @@
 from tensorflow.keras.layers import Dense,Flatten
 from tensorflow.keras.models import Model
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from keras.callbacks import CSVLogger,ModelCheckpoint
+from tensorflow.keras.callbacks import CSVLogger,ModelCheckpoint
 from glob import glob
 
 def outputLayer(model, folders):
