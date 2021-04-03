@@ -19,5 +19,5 @@ setup(
   license='MIT', 
   classifiers=classifiers,
   packages=find_packages(),
-  install_requires=['PIL', 'os', 'sys', 'tensorflow', 'glob2', 'keras'] 
+  install_requires=['PIL', 'os', 'sys', 'tensorflow', 'glob2'] 
 )
