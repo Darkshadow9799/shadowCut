@@ -12,7 +12,7 @@ setup(
   name='shadowCut',
   version='0.0.1',
   description='Deep Learning Model Training , Data Augmmentation and Image Resizing',
-  long_description=open('README.txt').read() + '\n\n' + open('CHANGELOG.txt').read(),
+  long_description=open('README.md').read(),
   url='',  
   author='Aayush Jain',
   author_email='jainaayush99.aj@gmail.com',
