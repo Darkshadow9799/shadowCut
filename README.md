@@ -1,5 +1,7 @@
 # shadowCut
 
+* Installation command: pip install shadowCut.
+
 * This is a python based library for fastening the deep learning coding process. Programmer has to only select the path for train data, val data and model as mandatory but rest of the parameters are optional and for customized as needed.
 
 * Now lets see at example for using pretrained model:

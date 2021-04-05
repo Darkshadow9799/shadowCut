@@ -10,8 +10,8 @@ classifiers = [
  
 setup(
   name='shadowCut',
-  version='0.0.1',
-  description='Deep Learning Model Training , Data Augmmentation and Image Resizing',
+  version='1.0.0',
+  description='Deep Learning Library',
   long_description=open('README.md').read(),
   url='',  
   author='Aayush Jain',
