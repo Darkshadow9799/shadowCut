@@ -3,6 +3,7 @@ from tensorflow.keras.models import Model
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.callbacks import CSVLogger,ModelCheckpoint
 from glob import glob
+from shadowCut.constants import *
 
 
 def customTrainedModel(train_path, valid_path, model, 
@@ -10,21 +11,21 @@ def customTrainedModel(train_path, valid_path, model,
                     filepath = 'saved_models/weights-improvement-{epoch:02d}.h5', 
                     monitor='val_accuracy', verbose=1, save_best_only=True, mode='max',
                     logfile='my_logs.csv', separator=',', append=False,
-                    batch_size = 32, class_mode='categorical', epochs=5, target_size=(256,144),
+                    batch_size = DEFAULT_BATCH_SIZE, class_mode='categorical', epochs = DEFAULT_EPOCHS, target_size=TARGET_SIZE,
                     featurewise_center=False, samplewise_center=False,
                     featurewise_std_normalization=False, samplewise_std_normalization=False,
-                    zca_whitening=False, zca_epsilon=1e-06, rotation_range=0, width_shift_range=0.0,
-                    height_shift_range=0.0, brightness_range=None, shear_range=0.0, zoom_range=0.0,
-                    channel_shift_range=0.0, fill_mode='nearest', cval=0.0,
+                    zca_whitening=False, zca_epsilon=1e-06, rotation_range=0, width_shift_range=CONSTANT_ZERO,
+                    height_shift_range=CONSTANT_ZERO, brightness_range=None, shear_range=CONSTANT_ZERO, zoom_range=CONSTANT_ZERO,
+                    channel_shift_range=CONSTANT_ZERO, fill_mode='nearest', cval=CONSTANT_ZERO,
                     horizontal_flip=False, vertical_flip=False, rescale=None,
-                    preprocessing_function=None, data_format=None, validation_split=0.0, dtype=None,
+                    preprocessing_function=None, data_format=None, validation_split=CONSTANT_ZERO, dtype=None,
                     test_featurewise_center=False, test_samplewise_center=False,
                     test_featurewise_std_normalization=False, test_samplewise_std_normalization=False,
-                    test_zca_whitening=False, test_zca_epsilon=1e-06, test_rotation_range=0, test_width_shift_range=0.0,
-                    test_height_shift_range=0.0, test_brightness_range=None, test_shear_range=0.0, test_zoom_range=0.0,
-                    test_channel_shift_range=0.0, test_fill_mode='nearest', test_cval=0.0,
+                    test_zca_whitening=False, test_zca_epsilon=1e-06, test_rotation_range=0, test_width_shift_range=CONSTANT_ZERO,
+                    test_height_shift_range=CONSTANT_ZERO, test_brightness_range=None, test_shear_range=CONSTANT_ZERO, test_zoom_range=CONSTANT_ZERO,
+                    test_channel_shift_range=CONSTANT_ZERO, test_fill_mode='nearest', test_cval=CONSTANT_ZERO,
                     test_horizontal_flip=False, test_vertical_flip=False, test_rescale=None,
-                    test_preprocessing_function=None, test_data_format=None, test_validation_split=0.0, test_dtype=None,
+                    test_preprocessing_function=None, test_data_format=None, test_validation_split=CONSTANT_ZERO, test_dtype=None,
                     validation_freq=1, class_weight=None, max_queue_size=10, workers=1, 
                     use_multiprocessing=False, shuffle=True, initial_epoch=0):
                     
