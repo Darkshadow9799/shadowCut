@@ -1,16 +1,21 @@
-from tensorflow.keras.layers import Dense,Flatten
+from tensorflow.keras.layers import Dense,Flatten,Concatenate
 from tensorflow.keras.models import Model
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.callbacks import CSVLogger,ModelCheckpoint
 from glob import glob
 from shadowCut.constants import *
 
-def outputLayer(model, folders):
-      x = Flatten()(model.output)
+def outputLayer(model, folders, outputModel):
+      if(outputModel != None):
+            x = Flatten()(model.output)
+            x = Concatenate()[x, outputLayer]      
+      else:
+            x = Flatten()(model.output)
+      
       prediction = Dense(len(folders),activation='softmax')(x)
       return prediction
 
-def preTrainedModel(train_path, valid_path, model, 
+def preTrainedModel(train_path, valid_path, model, outputModel = None,
                     optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'], 
                     filepath = 'saved_models/weights-improvement-{epoch:02d}.h5', 
                     monitor='val_accuracy', verbose=1, save_best_only=True, mode='max',
@@ -40,7 +45,7 @@ def preTrainedModel(train_path, valid_path, model,
                   
       folders=glob(train_path + '/*')
 
-      final_model=Model(inputs=model.input, outputs=outputLayer(model, folders))
+      final_model=Model(inputs=model.input, outputs=outputLayer(model, folders, outputLayer))
                     
       final_model.compile(optimizer=optimizer,loss=loss,metrics=metrics)
                     
