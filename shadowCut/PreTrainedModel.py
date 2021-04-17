@@ -6,12 +6,7 @@ from glob import glob
 from shadowCut.constants import *
 
 def outputLayer(model, folders, outputModel):
-      if(outputModel != None):
-            x = Flatten()(model.output)
-            x = Concatenate()[x, outputLayer]      
-      else:
-            x = Flatten()(model.output)
-      
+      x = Flatten()(model.output)
       prediction = Dense(len(folders),activation='softmax')(x)
       return prediction
 
@@ -45,7 +40,12 @@ def preTrainedModel(train_path, valid_path, model, outputModel = None,
                   
       folders=glob(train_path + '/*')
 
-      final_model=Model(inputs=model.input, outputs=outputLayer(model, folders, outputLayer))
+      if(outputModel == None):
+            final_model=Model(inputs=model.input, outputs=outputLayer(model, folders, outputModel))
+      else:
+            final_model=Model(inputs=model.input, outputs=outputModel)
+
+      
                     
       final_model.compile(optimizer=optimizer,loss=loss,metrics=metrics)
                     
