@@ -22,7 +22,8 @@
 
 
 1. Import the library: ```import shadowCut as sc```
-2. Get the training folder address and testing folder address. For example: ```train = './data/train'``` and ```test = './data/test'```
+2. Get the training folder address and testing folder address. For example: ```train = './data/train'``` and  
+```test = './data/test'```
 3. If want to get pretrained model: For example want to train ResNet152V2 model
     * ```model = tf.keras.applications.ResNet152V2()```
     * If want custom output model then can be passed else will take already present output model.
