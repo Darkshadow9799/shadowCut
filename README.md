@@ -35,7 +35,7 @@
     * ```model = #Custom model```
     * If want custom output model then can be passed else will take already present output model.
     * Config custom options if required.
-    * Pass it into: ```sc.customTrainedModel(train = train,
+    * Pass it into:```sc.customTrainedModel(train = train,
                                      test = test,
                                      model = model,
                                      * other custom parameters)```
