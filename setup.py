@@ -10,8 +10,8 @@ classifiers = [
  
 setup(
   name='shadowCut',
-  version='1.0.0',
-  description='Deep Learning Library',
+  version='1.0.6',
+  description='Deep Learning Library to speed up the coding process',
   long_description=open('README.md').read(),
   url='',  
   author='Aayush Jain',
@@ -19,5 +19,5 @@ setup(
   license='MIT', 
   classifiers=classifiers,
   packages=find_packages(),
-  install_requires=['PIL', 'os', 'sys', 'tensorflow', 'glob2'] 
+  install_requires=['Pillow', 'tensorflow', 'glob2', 'opencv-python' ] 
 )

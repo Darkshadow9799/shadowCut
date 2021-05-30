@@ -40,7 +40,7 @@ def preTrainedModel(train_path, valid_path, model, outputModel = None,
                   
       folders=glob(train_path + '/*')
 
-      if(outputModel == None):
+      if (outputModel == None):
             final_model=Model(inputs=model.input, outputs=outputLayer(model, folders, outputModel))
       else:
             final_model=Model(inputs=model.input, outputs=outputModel)
