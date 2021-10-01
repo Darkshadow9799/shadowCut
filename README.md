@@ -1,8 +1,10 @@
 # shadowCut
 
-* This is a python based library for fastening the deep learning coding process. Programmer has to only select the path for train data, val data and model as mandatory but rest of the parameters are optional and for customized as needed.
+* A python based package for fastening the deep learning pipeline. User has to select the path for train data, val data and model as mandatory but rest of the parameters are optional and for customized as needed.
 
-* All the tensorflow functionalities are Inherited in this library and major part of Library is constructed using tensorflow library.
+* All the tensorflow functionalities are Inherited in this library and major part of Library is constructed using tensorflow.
+
+* Pypi: [shadowCut - Pypi](https://pypi.org/project/shadowCut/)
 
 * Installation command: ```pip install shadowCut```
 
@@ -53,3 +55,5 @@
     * Style GAN
     * Cycle GAN (more can be added).
 3. Add Minmax and Wasserstein loss function.
+
+Futher for merging your code into the stable branch, you can contact the respective creator [Aayush Jain](mailto:jainaayush99.aj@gmail.com) to validate and merge your pull request.
