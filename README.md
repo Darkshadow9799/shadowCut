@@ -1,6 +1,6 @@
 # shadowCut
 
-* A python based package for fastening the deep learning pipeline. User has to select the path for train data, val data and model as mandatory but rest of the parameters are optional and for customized as needed.
+* A python based package for fastening the deep learning pipeline. User has to select the path for train data, validation data and model as mandatory but rest of the parameters are optional and for customized as needed.
 
 * All the tensorflow functionalities are Inherited in this library and major part of Library is constructed using tensorflow.
 
@@ -16,7 +16,7 @@
 * This will return model's history and model respectively.
 
 
-* **Libraries used:** ```PIL, os, sys, tensorflow, glob2```
+* **Libraries used:** ```PIL, os, sys, tensorflow, glob2, (tensorflow-gpu)```
 
 
 
@@ -37,6 +37,7 @@
 4. If want to get custom model: For example want to train ResNet152V2 model
     * ```model = #Custom model```
     * If want custom output model then can be passed else will take already present output model.
+    * This library will use gpu if the system has it.
     * Config custom options if required.
     * Pass it into:```sc.customTrainedModel(train = train,
                                      test = test,
@@ -45,7 +46,7 @@
 
 ## For Contribution:
 
-1. General script for all type of Generative Adverserial Network which can be excessed for by any new starter (and also experienced)
+1. General script for all type of Generative Adverserial Network which can be excessed for by any new starter (and also experienced).
 2. List of GANs to be added with a general script:
     * DCGAN
     * Condiational GAN
